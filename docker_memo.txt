@@ -1,8 +1,14 @@
 docker-compose up -d
 
+docker-compose ps
+NAME          IMAGE       COMMAND                   SERVICE   CREATED             STATUS             PORTS
+local-mysql   mysql:8.0   "docker-entrypoint.s…"   mysql     About an hour ago   Up About an hour   0.0.0.0:3306->3306/tcp, :::3306->3306/tcp, 33060/tcp
+
 docker image ls mysql:8.0
 REPOSITORY   TAG       IMAGE ID       CREATED        SIZE
 mysql        8.0       a224e47ff4b4   3 months ago   591MB
 
 docker inspect -f '{{range $key, $value := .NetworkSettings.Networks}}- {{$key}} {{println}}{{end}}' local-mysql
 - local-dev-mysql 
+
+docker network connect local-dev-mysql 繋げたいコンテナ
