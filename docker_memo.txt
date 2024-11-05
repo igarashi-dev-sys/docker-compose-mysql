@@ -1,0 +1,20 @@
+docker image build --tag my-php:php-8 .
+
+docker image ls my-php      
+REPOSITORY   TAG       IMAGE ID       CREATED         SIZE
+my-php       php-8     ba74c7def590   11 months ago   526MB
+
+docker run my-php:php-8 echo 'Hi'
+Hi
+
+
+
+docker run my-php:php-8
+docker run -d my-php:php-8
+
+-------------------------------
+docker-compose.yamlで
+-------------------------------
+
+docker inspect -f '{{range $key, $value := .NetworkSettings.Networks}}{{$key}}{{end}}' local-mysql
+docker_work_default
