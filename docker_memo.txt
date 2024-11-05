@@ -1,3 +1,11 @@
+--- LaravelのDB設定例  ---
+DB_HOST=mysql
+DB_PORT=3306
+DB_DATABASE=laravel
+DB_USERNAME=root
+DB_PASSWORD=secret
+------------------------
+
 docker-compose up -d
 
 docker-compose ps
@@ -15,3 +23,4 @@ docker network connect local-dev-mysql 繋げたいコンテナ
 
 ocker inspect -f '{{range $key, $value := .NetworkSettings.Networks}}- {{$key}} {{println}}{{end}}' 繋げたいコンテナ
 - local-dev-mysql 
+
