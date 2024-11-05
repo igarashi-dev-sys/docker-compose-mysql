@@ -17,6 +17,19 @@ services:
     networks:
       - local-dev-mysql  # カスタムネットワーク名
 
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin
+    environment:
+      PMA_HOST: local-mysql
+      PMA_PORT: 3306
+      PMA_USER: root
+      PMA_PASSWORD: secret #MYSQL_ROOT_PASSWORDと同じ
+    ports:
+      - "8080:80"  # ホストの8080番ポートをphpMyAdminの80番ポートにマッピング
+    networks:
+      - local-dev-mysql  # MySQLと同じネットワークに接続
+
 networks:
   local-dev-mysql:
     name: local-dev-mysql  # ネットワーク名を明示的に指定
