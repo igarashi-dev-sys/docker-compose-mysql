@@ -14,6 +14,13 @@ services:
     volumes:
       - mysql_data:/var/lib/mysql
     command: --default-authentication-plugin=mysql_native_password
+    networks:
+      - local-dev-mysql  # カスタムネットワーク名
+
+networks:
+  local-dev-mysql:
+    name: local-dev-mysql  # ネットワーク名を明示的に指定
+    driver: bridge
 
 volumes:
   mysql_data:
