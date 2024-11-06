@@ -21,6 +21,6 @@ docker inspect -f '{{range $key, $value := .NetworkSettings.Networks}}- {{$key}}
 
 docker network connect local-dev-mysql 繋げたいコンテナ
 
-ocker inspect -f '{{range $key, $value := .NetworkSettings.Networks}}- {{$key}} {{println}}{{end}}' 繋げたいコンテナ
+docker inspect -f '{{range $key, $value := .NetworkSettings.Networks}}- {{$key}} {{println}}{{end}}' 繋げたいコンテナ
 - local-dev-mysql 
 
